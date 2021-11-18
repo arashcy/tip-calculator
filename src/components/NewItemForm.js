@@ -1,7 +1,8 @@
 import { Box, Button, Input, Label } from '@twilio-paste/core';
 import { useState } from 'react';
+import { addNewItem } from '../store/items/actions'
 
-export const NewItemForm = ({ onSubmit }) => {
+export const NewItemForm = ({onSubmit}) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
 
@@ -13,11 +14,12 @@ export const NewItemForm = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (typeof onSubmit === 'function') {
       onSubmit(name, price);
     }
-
+    // If you don't pass dispatch map to connect(), you get dipatch function that 
+    // behaves similar to useDispatch hook
+    // dispatch(addNewItem(name,price))
     setName('');
     setPrice(0);
   };
