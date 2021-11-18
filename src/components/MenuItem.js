@@ -20,41 +20,42 @@ export const MenuItem = ({
   updateQuantity = () => {},
   remove = () => {}
 }) => {
+  console.log(uuid);
   return (
     <Card marginTop="space40">
       <Heading variant="heading30" as="h3">
-        {name}
-      </Heading>
+        {' '}
+        {name}{' '}
+      </Heading>{' '}
       <Flex>
         <Box padding="space20">
-          <Label htmlFor={`$item-${uuid}-price`}>Price</Label>
+          <Label htmlFor={`$item-${uuid}-price`}> Price </Label>{' '}
           <Input
             id={`$item-${uuid}-price`}
-            insertBefore={<div>$</div>}
+            insertBefore={<div> $ </div>}
             value={price}
             type="number"
             onChange={(event) => updatePrice(event.target.value)}
-          />
-        </Box>
+          />{' '}
+        </Box>{' '}
         <Box padding="space20">
-          <Label htmlFor={`$item-${uuid}-quantity`}>Quantity</Label>
+          <Label htmlFor={`$item-${uuid}-quantity`}> Quantity </Label>{' '}
           <Input
             id={`$item-${uuid}-quantity`}
             value={quantity}
             type="number"
             onChange={(event) => updateQuantity(event.target.value)}
-          />
-        </Box>
+          />{' '}
+        </Box>{' '}
         <Box padding="space20" textAlign="right" width="100%">
-          <Heading variant="heading50">Total</Heading>
-          {toCurrency(total)}
-        </Box>
-      </Flex>
+          <Heading variant="heading50"> Total </Heading> {toCurrency(total)}{' '}
+        </Box>{' '}
+      </Flex>{' '}
       <Box width="100%" textAlign="right">
         <Button variant="destructive_secondary" size="small" onClick={remove}>
-          Remove
-        </Button>
-      </Box>
+          Remove{' '}
+        </Button>{' '}
+      </Box>{' '}
     </Card>
   );
 };
