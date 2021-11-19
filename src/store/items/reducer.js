@@ -1,4 +1,4 @@
-import { ITEM_ADDED, ITEM_REMOVED, UPDATED_PRICE_ITEM } from "./actions";
+import { ITEM_ADDED, ITEM_REMOVED, UPDATED_PRICE_ITEM, UPDATED_QUANTITY_ITEM } from "./actions";
 
 let id = 1;
 
@@ -20,6 +20,14 @@ export const reducer = (state = initialItems, action) => {
     return state.map((item)=>{
       if(item.uuid === action.payload.uuid) {
         return {...item, price: action.payload.price}
+      }
+      return item
+    })
+  }
+  if(action.type === UPDATED_QUANTITY_ITEM){
+    return state.map((item)=>{
+      if(item.uuid === action.payload.uuid) {
+        return {...item, quantity: action.payload.quantity}
       }
       return item
     })

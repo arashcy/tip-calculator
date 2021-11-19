@@ -5,6 +5,7 @@ of maintainability. The rest should be handled in your reducers. [From FEM Redux
 export const ITEM_ADDED = 'ITEM_ADDED'
 export const ITEM_REMOVED = 'ITEM_REMOVED'
 export const UPDATED_PRICE_ITEM = 'UPDATE_PRICE_ITEM'
+export const UPDATED_QUANTITY_ITEM = 'UPDATE_QUANTITY_ITEM'
 
 export const addNewItem = (name, price) => ({
         type: ITEM_ADDED,
@@ -22,6 +23,14 @@ export const removeItem = (uuid) => ({
 
 export const updatePriceItem = (uuid, price)=> ({
     type: UPDATED_PRICE_ITEM,
+    payload: {
+        price,
+        uuid
+    }
+})
+
+export const updateQuantityItem = (uuid, price)=> ({
+    type: UPDATED_QUANTITY_ITEM,
     payload: {
         price,
         uuid

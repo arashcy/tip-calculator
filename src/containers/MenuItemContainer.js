@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MenuItem from "../components/MenuItem";
-import { removeItem, updatePriceItem } from "../store/items/actions";
+import { removeItem, updatePriceItem, updateQuantityItem } from "../store/items/actions";
 /*
 [ownProps​]
 If your mapStateToProps function is declared as taking two parameters, 
@@ -11,7 +11,8 @@ state as the first parameter, and the wrapper component's props as the second pa
 const mapDispatchToProps = (dispatch, ownProps)=> {
     return {
         remove:  () => dispatch(removeItem(ownProps.uuid)),
-        updatePrice:  (price) => dispatch(updatePriceItem(ownProps.uuid, price))
+        updatePrice:  (price) => dispatch(updatePriceItem(ownProps.uuid, price)),
+        updateQuantity: (quantity) => dispatch(updateQuantityItem(ownProps.uuid, quantity))
     }
 }
 
